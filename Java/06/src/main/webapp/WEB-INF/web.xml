@@ -1,0 +1,102 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>LP_Lab06</display-name>
+    <context-param>
+        <param-name>URL1</param-name>
+        <param-value>http://firstURL</param-value>
+    </context-param>
+    <context-param>
+        <param-name>URL2</param-name>
+        <param-value>http://secondURL</param-value>
+    </context-param>
+
+    <filter>
+        <filter-name>Filter1</filter-name>
+        <filter-class>Filter1</filter-class>
+        <init-param>
+            <param-name>active</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
+    <filter>
+        <filter-name>Filter2</filter-name>
+        <filter-class>Filter2</filter-class>
+        <init-param>
+            <param-name>active</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
+    <filter>
+        <filter-name>Filter3</filter-name>
+        <filter-class>Filter3</filter-class>
+        <init-param>
+            <param-name>active</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
+    <filter>
+        <filter-name>Filter4</filter-name>
+        <filter-class>Filter3</filter-class>
+        <init-param>
+            <param-name>active</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
+    <filter>
+        <filter-name>Filter5</filter-name>
+        <filter-class>Filter3</filter-class>
+        <init-param>
+            <param-name>active</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>Filter1</filter-name>
+        <servlet-name>Ccc</servlet-name>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>Filter2</filter-name>
+        <servlet-name>Ccc</servlet-name>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>Filter3</filter-name>
+        <servlet-name>Ccc</servlet-name>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>Filter4</filter-name>
+        <servlet-name>Ccc</servlet-name>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>Filter5</filter-name>
+        <servlet-name>Ccc</servlet-name>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>Ccc</servlet-name>
+        <servlet-class>Ccc</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Ccc</servlet-name>
+        <url-pattern>/Ccc</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <listener>
+        <listener-class>Listener1</listener-class>
+    </listener>
+    <listener>
+        <listener-class>Listener2</listener-class>
+    </listener>
+</web-app>

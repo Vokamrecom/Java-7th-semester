@@ -1,0 +1,29 @@
+drop database lab_10v1;
+create database lab_10;
+
+use lab_10;
+create table t1(
+id int primary key,
+name varchar(45) not null)
+
+use lab_10
+
+select * from t1
+drop procedure insertToT1 
+DELIMITER //
+CREATE PROCEDURE insertToT1 (in id_s int, in name_s varchar(45))
+begin
+insert into lab_10.t1 (id, name) values (id_s, name_s);
+end // 
+DELIMITER;
+
+CREATE PROCEDURE simpleproc (IN name varchar(50),IN user_name varchar(50),IN branch varchar(50))
+BEGIN
+    insert into student (name,user_name,branch) values (name ,user_name,branch);
+END
+
+
+CREATE PROCEDURE `simpleproc` (OUT id INT)
+ BEGIN
+ SELECT COUNT(*) INTO id FROM t1;
+ END;

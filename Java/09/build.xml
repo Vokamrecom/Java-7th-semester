@@ -1,0 +1,43 @@
+<project name="Student" default="Deploy files">
+	<target name="init">
+		<echo message="Student Project" />
+	</target>
+	<property name="base.src" location="D:\Study\Java\"/>
+	<property name="src" location="${base.src}\Lab9\"/>
+	<property name="server" location="C:\Program Files\Apache Software Foundation\Tomcat 9.0\"/>
+	
+	<property name="deploy" location="${server}\webapps\Lab9\"/>
+	
+	<target name="Clear remote" depends="init">
+		<delete dir= "${deploy}" />
+		<mkdir dir= "${deploy}" />
+		<mkdir dir= "${deploy}\WEB-INF" />
+		<mkdir dir= "${deploy}\html" />
+		<mkdir dir= "${deploy}\WEB-INF\classes" />
+		<mkdir dir= "${src}\build" />
+	</target>
+	<target name="compile" depends ="Clear remote">
+		<delete verbose ="true">
+			<fileset dir="${src}\build"/>
+		</delete>
+		<path id="classpath">
+			<fileset dir="${base.src}\libs\" includes="**/*.jar"/>
+		</path>
+		<mkdir dir= "${src}\build\classes" />
+		<javac srcdir = "${src}\src\java\" destdir = "${src}\build\classes" classpathref="classpath">
+		</javac>
+	</target>
+	<target name="Deploy files" depends="compile">
+		<copy file= "${src}\WEB-INF\web.xml" todir="${deploy}\WEB-INF\" />
+		<copy todir="${deploy}\WEB-INF\classes">
+			<fileset dir="${src}\build\classes"/>
+		</copy>
+		<copy todir="${deploy}\WEB-INF\">
+			<fileset dir="${src}\WEB-INF\"/>
+		</copy>
+		<copy file="${src}\index.html" todir="${deploy}\"/>
+		<copy file="${src}\CCC.jsp" todir="${deploy}\"/>
+		<copy file="${src}\Context.jsp" todir="${deploy}\"/>
+		<copy file="${src}\Session.jsp" todir="${deploy}\"/>
+	</target>
+</project> 
